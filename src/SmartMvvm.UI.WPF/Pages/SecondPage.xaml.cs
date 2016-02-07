@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SmartMvvm.ViewModels.Interfaces;
 
 namespace SmartMvvm.UI.WPF.Pages
 {
@@ -23,6 +24,12 @@ namespace SmartMvvm.UI.WPF.Pages
         public SecondPage()
         {
             InitializeComponent();
+        }
+
+        public SecondPage(IPageViewModel viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

@@ -13,5 +13,6 @@
     </Page.DataContext>
     <StackPanel>
         <Label Content="{Binding Title}"></Label>
+        <Button Content="Start" Command="{Binding StartCommand}"></Button>
     </StackPanel>
 </Page>

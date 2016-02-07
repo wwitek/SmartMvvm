@@ -4,11 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SmartMvvm.UI.WPF.Pages"
+      xmlns:viewModels="clr-namespace:SmartMvvm.ViewModels;assembly=SmartMvvm.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="SecondPage">
-
-    <Grid>
-        
-    </Grid>
+    <Page.DataContext>
+        <viewModels:BasePageViewModel />
+    </Page.DataContext>
+    <StackPanel>
+        <Label Content="{Binding Title}"></Label>
+        <Button Content="Start" Command="{Binding BackToStartCommand}"></Button>
+    </StackPanel>
 </Page>

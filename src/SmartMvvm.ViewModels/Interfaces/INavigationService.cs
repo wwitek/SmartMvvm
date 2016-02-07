@@ -5,5 +5,6 @@
         void GoForward();
         void GoBack();
         bool Navigate(string page);
+        bool Navigate(IPageViewModel pageViewModel);
     }
 }
