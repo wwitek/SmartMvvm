@@ -19,7 +19,8 @@ namespace SmartMvvm.ViewModels
 
         public new ICommand StartCommand
         {
-            get { return new RelayCommand(() => NavigationService.Navigate(new SecondPageViewModel(NavigationService))); }
+            get { return new RelayCommand(() => NavigationService.Navigate(new SecondPageViewModel(NavigationService, null))); }
+            //get { return new RelayCommand(() => NavigationService.Navigate<SecondPageViewModel>()); }
         }
     }
 }

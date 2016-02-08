@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using SmartMvvm.Domain;
 using SmartMvvm.ViewModels.Interfaces;
 
 namespace SmartMvvm.ViewModels
 {
     public class SecondPageViewModel : BasePageViewModel
     {
-        public SecondPageViewModel(INavigationService navigationService) 
+        public SecondPageViewModel(INavigationService navigationService, Hello hello) 
             : base(navigationService)
         {
             Title = "Second page!";

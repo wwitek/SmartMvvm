@@ -9,7 +9,7 @@ namespace SmartMvvm.Domain
     public class Hello
     {
         public string Name { get; set; }
-
+        
         public Hello(string name)
         {
             Name = name;

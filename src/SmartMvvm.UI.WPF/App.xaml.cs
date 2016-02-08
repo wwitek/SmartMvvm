@@ -5,7 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight.Views;
+using Ninject;
+using Ninject.Modules;
 using SmartMvvm.ViewModels;
+using INavigationService = SmartMvvm.ViewModels.Interfaces.INavigationService;
 
 namespace SmartMvvm.UI.WPF
 {
@@ -18,11 +22,18 @@ namespace SmartMvvm.UI.WPF
         {
             base.OnStartup(e);
 
-            MainWindow mainWindow = new MainWindow();
-            var navigation = new NavigationService(mainWindow.MainFrame);
+            IKernel kernel = new StandardKernel();
+            var modules = new List<INinjectModule>
+            {
+                new GameModule()
+            };
+            kernel.Load(modules);
+
+            MainWindow mainWindow = kernel.Get<MainWindow>();
+            INavigationService navigation = kernel.Get<INavigationService>();
 
             // Set up first page
-            navigation.Navigate(new StartPageViewModel(navigation));
+            navigation.Navigate(kernel.Get<StartPageViewModel>());
             mainWindow.Show();
         }
     }
