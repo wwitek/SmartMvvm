@@ -92,7 +92,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\SecondPage.xaml">
+    <Page Include="Pages\FinalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,8 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NavigationService.cs" />
-    <Compile Include="Pages\SecondPage.xaml.cs">
-      <DependentUpon>SecondPage.xaml</DependentUpon>
+    <Compile Include="Pages\FinalPage.xaml.cs">
+      <DependentUpon>FinalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>

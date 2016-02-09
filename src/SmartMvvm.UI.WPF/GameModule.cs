@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,33 +16,40 @@ namespace SmartMvvm.UI.WPF
 {
     public class GameModule : NinjectModule
     {
+        public GameModule()
+        {
+            Debug.WriteLine(GetType().Name + " created.");
+        }
+
         public override void Load()
         {
             Bind<Hello>().ToSelf().InSingletonScope()
                 .WithConstructorArgument("name", "John");
-
             Bind<MainWindow>().ToSelf().InSingletonScope();
 
             MainWindow mainWindow = Kernel.Get<MainWindow>();
             Bind<INavigationService>().To<NavigationService>().InSingletonScope()
                 .WithConstructorArgument("frame", mainWindow.MainFrame);
 
+            Hello hello = Kernel.Get<Hello>();
             INavigationService navigationService = Kernel.Get<INavigationService>();
+
+            Bind<FinalPageViewModel>().To<FinalPageViewModel>()
+                .Named("Final1Page")
+                .WithConstructorArgument("navigationService", navigationService)
+                .WithConstructorArgument("hello", hello)
+                .WithConstructorArgument("param1", "AParam1")
+                .WithConstructorArgument("param2", 101);
+
+            Bind<FinalPageViewModel>().To<FinalPageViewModel>()
+                .Named("Final2Page")
+                .WithConstructorArgument("navigationService", navigationService)
+                .WithConstructorArgument("hello", hello)
+                .WithConstructorArgument("param1", "BParam1")
+                .WithConstructorArgument("param2", 110);
+
             Bind<StartPageViewModel>().To<StartPageViewModel>()
                 .WithConstructorArgument("navigationService", navigationService);
-
-            Hello hello = Kernel.Get<Hello>();
-            Bind<SecondPageViewModel>().To<SecondPageViewModel>()
-                .WithConstructorArgument("navigationService", navigationService)
-                .WithConstructorArgument("hello", hello);
-
-            SecondPageViewModel secondPageViewModel = Kernel.Get<SecondPageViewModel>();
-            Bind<SecondPage>().To<SecondPage>()
-                .WithConstructorArgument("viewModel", secondPageViewModel);
-
-            StartPageViewModel startPageViewModel = Kernel.Get<StartPageViewModel>();
-            Bind<StartPage>().To<StartPage>()
-                .WithConstructorArgument("viewModel", startPageViewModel);;
         }
     }
 }

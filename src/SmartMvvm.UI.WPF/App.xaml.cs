@@ -32,8 +32,12 @@ namespace SmartMvvm.UI.WPF
             MainWindow mainWindow = kernel.Get<MainWindow>();
             INavigationService navigation = kernel.Get<INavigationService>();
 
+            navigation.InjectPage("StartPage", kernel.Get<StartPageViewModel>());
+            navigation.InjectPage("Final1Page", kernel.Get<FinalPageViewModel>("Final1Page"));
+            navigation.InjectPage("Final2Page", kernel.Get<FinalPageViewModel>("Final2Page"));
+
             // Set up first page
-            navigation.Navigate(kernel.Get<StartPageViewModel>());
+            navigation.Navigate("StartPage");
             mainWindow.Show();
         }
     }

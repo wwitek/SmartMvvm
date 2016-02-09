@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace SmartMvvm.ViewModels
 
         public BasePageViewModel()
         {
+            Debug.WriteLine(GetType().Name + " created.");
             Title = "Base";
         }
 
@@ -25,7 +27,8 @@ namespace SmartMvvm.ViewModels
             NavigationService = navigationService;
         }
 
-        public ICommand StartCommand => null;
+        public ICommand StartCommand1 => null;
+        public ICommand StartCommand2 => null;
         public ICommand BackToStartCommand => null;
     }
 }

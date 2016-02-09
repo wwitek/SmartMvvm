@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +18,19 @@ using SmartMvvm.ViewModels.Interfaces;
 namespace SmartMvvm.UI.WPF.Pages
 {
     /// <summary>
-    /// Interaction logic for SecondPage.xaml
+    /// Interaction logic for FinalPage.xaml
     /// </summary>
-    public partial class SecondPage : Page
+    public partial class FinalPage : Page
     {
-        public SecondPage()
+        public FinalPage()
         {
+            Debug.WriteLine("Parameterless " + GetType().Name + " created.");
             InitializeComponent();
         }
 
-        public SecondPage(IPageViewModel viewModel)
+        public FinalPage(IPageViewModel viewModel)
         {
+            Debug.WriteLine(GetType().Name + " created.");
             InitializeComponent();
             DataContext = viewModel;
         }

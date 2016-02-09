@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace SmartMvvm.UI.WPF
     {
         public MainWindow()
         {
+            Debug.WriteLine(GetType().Name + " created.");
             InitializeComponent();
         }
     }

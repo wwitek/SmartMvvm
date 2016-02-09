@@ -2,10 +2,10 @@
 {
     public interface INavigationService
     {
+        void InjectPage(string pageKey, IPageViewModel viewModel);
         void GoForward();
         void GoBack();
-        //bool Navigate(string page);
+        bool Navigate(string pageKey);
         bool Navigate(IPageViewModel pageViewModel);
-        //bool Navigate<T>();
     }
 }
