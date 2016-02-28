@@ -18,12 +18,13 @@ namespace SmartMvvm.ViewModels
 
         public BasePageViewModel()
         {
-            Debug.WriteLine(GetType().Name + " created.");
+            Debug.WriteLine("Parameterless " + GetType().Name + " created.");
             Title = "Base";
         }
 
         public BasePageViewModel(INavigationService navigationService)
         {
+            Debug.WriteLine(GetType().Name + " created.");
             NavigationService = navigationService;
         }
 

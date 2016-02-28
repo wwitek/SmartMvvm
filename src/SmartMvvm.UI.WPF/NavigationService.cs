@@ -15,7 +15,7 @@ namespace SmartMvvm.UI.WPF
     public class NavigationService : INavigationService
     {
         private readonly Frame frame;
-        private readonly Dictionary<string, IPageViewModel> pages = new Dictionary<string, IPageViewModel>(); 
+        private readonly Dictionary<string, IPageViewModel> pages = new Dictionary<string, IPageViewModel>();
 
         public NavigationService(Frame frame)
         {
@@ -55,14 +55,7 @@ namespace SmartMvvm.UI.WPF
             IPageViewModel viewModel;
             if (pages.TryGetValue(pageKey, out viewModel))
             {
-                string viewModelName = viewModel.GetType().Name;
-                string pageName = viewModelName.Substring(0, viewModelName.IndexOf("ViewModel", StringComparison.Ordinal));
-
-                var type = Assembly.GetExecutingAssembly().GetTypes().SingleOrDefault(a => a.Name.Equals(pageName));
-                if (type == null) return false;
-
-                var src = Activator.CreateInstance(type, viewModel);
-                return frame.Navigate(src);
+                return Navigate(viewModel);
             }
             return false;
         }

@@ -38,15 +38,15 @@ namespace SmartMvvm.UI.WPF
                 .Named("Final1Page")
                 .WithConstructorArgument("navigationService", navigationService)
                 .WithConstructorArgument("hello", hello)
-                .WithConstructorArgument("param1", "AParam1")
-                .WithConstructorArgument("param2", 101);
+                .WithConstructorArgument("param1", "AAA")
+                .WithConstructorArgument("param2", 111);
 
             Bind<FinalPageViewModel>().To<FinalPageViewModel>()
                 .Named("Final2Page")
                 .WithConstructorArgument("navigationService", navigationService)
                 .WithConstructorArgument("hello", hello)
-                .WithConstructorArgument("param1", "BParam1")
-                .WithConstructorArgument("param2", 110);
+                .WithConstructorArgument("param1", "BBB")
+                .WithConstructorArgument("param2", 999);
 
             Bind<StartPageViewModel>().To<StartPageViewModel>()
                 .WithConstructorArgument("navigationService", navigationService);

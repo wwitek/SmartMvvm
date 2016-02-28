@@ -17,7 +17,7 @@ namespace SmartMvvm.ViewModels
             : base(navigationService)
         {
             Debug.WriteLine(GetType().Name + " created.");
-            Title = "Final page! Hello " + hello.SayHello() + ". P1=" + param1 + ". P2=" + param2;
+            Title = "Final page! " + hello.SayHello() + ". P1=" + param1 + ". P2=" + param2;
         }
 
         public new ICommand BackToStartCommand

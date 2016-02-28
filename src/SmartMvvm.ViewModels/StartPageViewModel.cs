@@ -24,7 +24,6 @@ namespace SmartMvvm.ViewModels
         {
             get
             {
-                Hello h = new Hello("Number 1");
                 return new RelayCommand(() => NavigationService.Navigate("Final1Page"));
             }
         }
@@ -33,7 +32,6 @@ namespace SmartMvvm.ViewModels
         {
             get
             {
-                Hello h = new Hello("Number 2");
                 return new RelayCommand(() => NavigationService.Navigate("Final2Page"));
             }
         }

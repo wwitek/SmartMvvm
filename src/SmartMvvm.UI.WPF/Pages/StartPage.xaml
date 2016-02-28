@@ -13,7 +13,7 @@
     </Page.DataContext>
     <StackPanel>
         <Label Content="{Binding Title}"></Label>
-        <Button Content="Go to final 1" Command="{Binding StartCommand1}"></Button>
-        <Button Content="Go to final 2" Command="{Binding StartCommand2}"></Button>
+        <Button Content="Navigate to final page" Command="{Binding StartCommand1}"></Button>
+        <Button Content="Navigate to final page with different parameters" Command="{Binding StartCommand2}"></Button>
     </StackPanel>
 </Page>
